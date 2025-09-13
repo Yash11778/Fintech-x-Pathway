@@ -1,0 +1,56 @@
+# Live Fintech AI Assistant - Python Dependencies
+
+# Core framework
+pathway==0.13.0
+
+# Web framework and dashboard
+streamlit==1.31.0
+plotly==5.17.0
+
+# Data processing
+pandas==2.2.0
+numpy==1.26.0
+
+# API clients and HTTP
+requests==2.31.0
+aiohttp==3.9.0
+
+# Web scraping
+beautifulsoup4==4.12.2
+lxml==4.9.3
+html5lib==1.1
+
+# AI and LLM
+openai==1.10.0
+
+# Database
+pymongo==4.6.0
+motor==3.3.0
+
+# Configuration management
+python-dotenv==1.0.0
+
+# Data validation and type checking
+pydantic==2.5.0
+typing-extensions==4.9.0
+
+# Date and time handling
+python-dateutil==2.8.2
+
+# Async support
+asyncio-mqtt==0.16.1
+
+# Logging and monitoring
+loguru==0.7.2
+
+# Testing (optional)
+pytest==8.0.0
+pytest-asyncio==0.23.0
+
+# Development tools (optional)
+black==24.0.0
+flake8==7.0.0
+mypy==1.8.0
+
+# System utilities
+psutil==5.9.0
