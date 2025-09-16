@@ -1,13 +1,21 @@
-# Live Fintech AI Assistant - Python Dependencies
+# Live Fintech AI™ - AI-Powered Trading Co-Pilot Requirements
 
-# Core framework
-pathway==0.13.0
+streamlit>=1.30.0
+yfinance>=0.2.20
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.17.0
 
-# Web framework and dashboard
-streamlit==1.31.0
-plotly==5.17.0
+# AI and Machine Learning
+scikit-learn>=1.3.0
+textblob>=0.17.1
 
-# Data processing
+# Web Scraping
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+lxml>=4.9.0
+
+# Data Processing
 pandas==2.2.0
 numpy==1.26.0
 

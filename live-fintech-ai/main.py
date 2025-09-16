@@ -61,6 +61,8 @@ class FinTechAISystem:
                 self._start_fast_dashboard()
             elif mode == "beautiful-dashboard" or mode == "beautiful":
                 self._start_beautiful_dashboard()
+            elif mode == "news-dashboard":
+                self._start_news_dashboard()
             elif mode == "test":
                 await self._run_tests()
             else:
@@ -188,6 +190,29 @@ class FinTechAISystem:
             ])
         except KeyboardInterrupt:
             print("\n🛑 Beautiful Dashboard stopped")
+    
+    def _start_news_dashboard(self):
+        """Start the honest news-focused dashboard"""
+        print("\n📰 Starting News Analysis Dashboard...")
+        print("🎯 Focus: Understanding WHY stock prices move through news analysis")
+        print("📊 Real data from Yahoo Finance • No fake Pathway claims")
+        print("🌐 Dashboard will be available at: http://localhost:8501")
+        
+        import subprocess
+        import sys
+        
+        # Run news analysis dashboard
+        dashboard_path = os.path.join(os.path.dirname(__file__), 'frontend', 'honest_news_dashboard.py')
+        
+        try:
+            subprocess.run([
+                sys.executable, '-m', 'streamlit', 'run', dashboard_path,
+                '--server.port', '8501',
+                '--server.headless', 'true',
+                '--server.runOnSave', 'true'
+            ])
+        except KeyboardInterrupt:
+            print("\n🛑 News Dashboard stopped")
     
     async def _start_dashboard_async(self):
         """Start dashboard asynchronously"""
@@ -338,24 +363,23 @@ def create_cli_parser():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  python main.py                          # Start beautiful dashboard (✨ NEW DEFAULT!)
-  python main.py --mode beautiful         # Start beautiful dashboard with enhanced news UI
-  python main.py --mode fast-dashboard    # Start ultra-fast dashboard (⚡ FAST)
-  python main.py --mode fast-pathway      # Start ULTRA-FAST Pathway pipeline (⚡ RECOMMENDED)
-  python main.py --mode full              # Start full system (pipeline + dashboard)
-  python main.py --mode pipeline          # Start only the data pipeline (legacy async)
-  python main.py --mode pathway           # Start only the Pathway-based pipeline
-  python main.py --mode dashboard         # Start only the dashboard  
+  python main.py                          # Start honest news dashboard (📰 RECOMMENDED!)
+  python main.py --mode news-dashboard    # News-focused analysis (what actually works)
+  python main.py --mode fast-dashboard    # Fast dashboard with real-time updates
+  python main.py --mode beautiful         # Beautiful dashboard with enhanced UI
   python main.py --mode test              # Run system tests
   python main.py --setup                  # Setup wizard for configuration
+  
+NOTE: This system focuses on NEWS explaining WHY stock prices move.
+No fake Pathway usage - just real financial analysis that works on Windows.
         """
     )
     
     parser.add_argument(
         '--mode',
-        choices=['full', 'pipeline', 'pathway', 'dashboard', 'fast-dashboard', 'beautiful-dashboard', 'beautiful', 'fast-pathway', 'test'],
-        default='beautiful-dashboard',
-        help='System operation mode (default: beautiful-dashboard)'
+        choices=['news-dashboard', 'fast-dashboard', 'beautiful', 'test', 'setup'],
+        default='news-dashboard',
+        help='System operation mode (default: news-dashboard - focuses on WHY prices move)'
     )
     
     parser.add_argument(
