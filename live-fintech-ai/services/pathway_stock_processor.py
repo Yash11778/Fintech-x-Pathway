@@ -29,7 +29,6 @@ except ImportError:
     logger = logging.getLogger(__name__)
     logger.warning("⚠️ Pathway not available - using simulation")
 
-# Set up logging
 logging.basicConfig(level=logging.INFO)
 
 @dataclass
